@@ -8,8 +8,14 @@
     = stylesheet_link_tag 'application'
     = stylesheet_pack_tag 'main'
 
-    = javascript_include_tag 'application'
+    = controller_stylesheet_link_tag
+    = action_stylesheet_link_tag
+
     = javascript_pack_tag 'application'
+    = javascript_include_tag 'application'
+
+    = controller_script_include_tag data: { turbolinks_track: :reload }
+    = action_script_include_tag     data: { turbolinks_track: :reload }
 
     = csrf_meta_tags
 

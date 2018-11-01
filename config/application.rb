@@ -21,8 +21,12 @@ Bundler.require(*Rails.groups)
 
 module ArcaneTest
   class Application < Rails::Application
+    LIB = 'lib'
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
+
+    config.enable_dependency_loading = true
+    config.autoload_paths << Rails.root.join(LIB)
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
