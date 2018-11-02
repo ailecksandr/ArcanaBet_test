@@ -6,6 +6,7 @@ module Stocks
 
     PER_PAGE     = 10
     DEFAULT_PAGE = 1
+    OFFSET       = 1
 
     def initialize(params:, user:)
       @params = params
@@ -21,7 +22,7 @@ module Stocks
     end
 
     def page_counter
-      PER_PAGE * (page.to_i - 1) + 1
+      PER_PAGE * (page.to_i - 1) + OFFSET
     end
 
     private
@@ -29,9 +30,7 @@ module Stocks
     attr_reader :user, :params
 
     def paginated_stocks
-      @paginated_stocks ||= pagy(Stock.where(user: user),
-                                 page:  page,
-                                 items: PER_PAGE)
+      @paginated_stocks ||= pagy(Stock.where(user: user), page: page, items: PER_PAGE)
     end
 
     def page

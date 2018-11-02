@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.0'
+ruby ENV.fetch('CIRCLE_CI_RUBY_VERSION', '2.5.0')
 
 gem 'rails', '~> 5.2.1'
 gem 'pg', '>= 0.18', '< 2.0'
@@ -22,7 +22,7 @@ gem 'chartkick'
 gem 'pagy'
 
 group :development, :test do
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'brakeman', require: false
   gem 'database_cleaner'
   gem 'rspec-rails'
   gem 'dotenv-rails'
@@ -44,6 +44,7 @@ group :test do
   gem 'chromedriver-helper'
   gem 'capybara-screenshot'
   gem 'faker'
+  gem 'rubocop'
 end
 
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

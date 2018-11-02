@@ -2,25 +2,27 @@
 
 module  Stocks
   class Create < ::Callable
+    PERCENTS = 100
+
     def initialize(user:, params:)
       @user   = user
       @params = params
     end
 
     def call
-      create_stock
+      Stock.create(stock_params)
     end
 
     private
 
     attr_reader :params, :user
 
-    def create_stock
-      Stock.create(stock_params)
+    def stock_params
+      params.merge(user: user, interest: interest)
     end
 
-    def stock_params
-      params.merge(user: user)
+    def interest
+      params.delete(:interest).to_f / PERCENTS
     end
   end
 end

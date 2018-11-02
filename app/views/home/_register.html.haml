@@ -1,5 +1,5 @@
 #register.card.bg-light.border-0
-  %article.card-body.mx-auto{:style => "max-width: 400px;"}
+  %article.card-body.mx-auto{ style: 'max-width: 400px;' }
     %h4.card-title.mt-3.text-center= t('home.index.create_button')
     %p.text-center= t('home.index.get_started')
     = simple_form_for(:user, url: user_registration_path) do |f|
