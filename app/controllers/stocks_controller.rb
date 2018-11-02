@@ -2,7 +2,11 @@
 
 class StocksController < ApplicationController
   def index
-    @stocks = Stock.where(user_id: current_user)
+    @facade = ::Stocks::IndexFacade.new(params: params, user: current_user)
+  end
+
+  def show
+    @facade = ::Stocks::ShowFacade.new(stock_id: params[:id])
   end
 
   def new
@@ -12,9 +16,15 @@ class StocksController < ApplicationController
   def create
     @stock = ::Stocks::Create.call(user: current_user, params: stock_params)
 
-    return redirect_to root_path, notice: 'Stock saved' if @stock.valid?
+    return render :new unless @stock.valid?
 
-    render :new
+    redirect_to root_path, notice: I18n.t('stocks.create.successfully_created')
+  end
+
+  def destroy
+    ::Stocks::Destroy.call(stock_id: params[:id])
+
+    redirect_to root_path, notice: I18n.t('stocks.index.successfully_deleted')
   end
 
   private

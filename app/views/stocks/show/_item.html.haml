@@ -1,0 +1,23 @@
+#container.col-3
+  #accordion
+    .card-header
+      %a.card-link{ "data-toggle":"collapse", href: "#collapseSECOND" }
+        %h6.card-subtitle.mb-2.text-= @facade.stock_name
+    #collapseSECOND.collapse.show{ "data-parent": "#accordion" }
+      .card-body
+        %table.table.table-hover.group.table-striped
+          %table.table.table-hover.group.table-striped
+            %tbody
+              %tr
+                %td= t('records.stock.properties.name')
+                %td= @facade.stock_name
+              %tr
+                %td= t('stocks.show.properties.unit_price')
+                %td= @facade.stock_unit_price
+              %tr
+                %td= t('stocks.show.properties.interest')
+                %td= @facade.stock_interest
+              %tr
+                %td= t('stocks.show.properties.duration')
+                %td= @facade.stock_duration
+          .card-footer.text-muted

@@ -1,7 +1,6 @@
 #sign-in.card.bg-light.border-0
-  %article.card-body.mx-auto{:style => "max-width: 400px;"}
-    %h4.card-title.mt-3.text-center Sign In
-    %p.text-center Use your email and password to log in
+  %article.card-body.mx-auto
+    %h4.card-title.mt-3.text-center= t('home.index.sign_in')
     = simple_form_for(:user, url: user_session_path) do |f|
       .form-group.input-group
         .input-group-prepend
@@ -18,7 +17,7 @@
       .form-group
         = f.submit 'Sign in', class: 'btn btn-primary btn-block'
         %p.divider-text
-          %span.bg-light OR
+          %span.bg-light= t('home.index.or')
       .form-group.js-switch-form
         .btn.btn-info.btn-block
-          I have account already
+          = t('home.index.no_account')

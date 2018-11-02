@@ -1,0 +1,14 @@
+.col-lg-8.col-md-10.ml-auto.mr-auto
+  .table-responsive
+    %table.table.table-striped
+      %thead
+        %tr
+          %th.text-center #
+          %th= t('records.stock.properties.name')
+          %th= t('records.stock.properties.unit_price')
+          %th= t('records.stock.properties.interest')
+          %th= t('records.stock.properties.duration')
+          %th.text-center= t('stocks.index.actions')
+      %tbody
+        - stocks.each.with_index(@facade.page_counter) do |item, index|
+          = render partial: 'stocks/index/item', locals: { item: item, index: index }
