@@ -1,47 +1,35 @@
-ENV["RAILS_ENV"] ||= "test"
+# frozen_string_literal: true
 
-require File.expand_path("../../config/environment", __FILE__)
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+require 'spec_helper'
+require 'faker'
+require 'capybara/rspec'
+require 'shoulda/matchers'
+require 'dotenv'
 
-require "spec_helper"
-require "rspec/rails"
+ENV['RAILS_ENV'] ||= 'test'
+ENV['NODE_ENV'] ||= 'test'
+Dotenv.load('.env.test')
 
-# Add additional requires below this line. Rails is not loaded until this point!
-require "capybara/rspec"
-# Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+require File.expand_path('../../config/environment', __FILE__)
+abort('The Rails environment is running in production mode!') if Rails.env.production? || Rails.env.staging?
+
+require 'rspec/rails'
+
+%w[
+  spec/support/*.rb
+  spec/shared_examples/**/*.rb
+].each { |path| Dir[Rails.root.join(path)].each(&method(:require)) }
+
 ActiveRecord::Migration.maintain_test_schema!
 
-Capybara.register_driver :selenium_chrome do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
-end
-
-Capybara.javascript_driver = :selenium_chrome
-
 RSpec.configure do |config|
-  # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path               = "#{::Rails.root}/spec/fixtures"
-  config.use_transactional_fixtures = false
-
+  config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
 
-  config.before(:suite) do
-    DatabaseCleaner.clean_with(:truncation)
-  end
+  config.before(:suite) { Rails.application.load_tasks }
 
-  config.before(:each) do
-    DatabaseCleaner.strategy = :transaction
-  end
-
-  config.before(:each, js: true) do
-    DatabaseCleaner.strategy = :truncation
-  end
-  # This block must be here, do not combine with the other `before(:each)` block.
-  # This makes it so Capybara can see the database.
-  config.before(:each) do
-    DatabaseCleaner.start
-  end
-  config.after(:each) do
-    DatabaseCleaner.clean
-  end
+  config.include Shoulda::Matchers::ActiveModel,       type: :model
+  config.include Shoulda::Matchers::ActiveRecord,      type: :model
+  config.include Rails.application.routes.url_helpers, type: :form
 end
