@@ -3,7 +3,9 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root 'home#index'
+  devise_scope(:user) { unauthenticated { root to: 'home#index' } }
 
-  resource :home
+  root 'stocks#index'
+
+  resources :stocks
 end

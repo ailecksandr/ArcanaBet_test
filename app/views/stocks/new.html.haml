@@ -1,0 +1,8 @@
+.container
+  .row
+    = simple_form_for(@stock) do |form|
+      = form.input :name
+      = form.input :unit_price
+      = form.input :interest
+      = form.input :duration
+      = form.button :submit

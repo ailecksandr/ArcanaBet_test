@@ -1,6 +1,6 @@
 .container-fluid.bg-light
   #homepage.row.justify-content-center
-    .col-4
+    .col-4.js-register-form
       = render 'register'
-      .col-4.d-none
-        = render 'sign_in'
+    .col-4.d-none.js-sign-in-form
+      = render 'sign_in'
