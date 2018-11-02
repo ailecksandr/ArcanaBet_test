@@ -1,2 +1,2 @@
 web:     bundle exec puma -C config/puma.rb
-release: bundle exec rake db:migrate RAILS_ENV=production && bundle exec rake seed:migrate
+release: bundle exec rake db:migrate RAILS_ENV=production
