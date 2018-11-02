@@ -1,0 +1,11 @@
+%tr
+  %td.text-center= item_counter + 1
+  %td= item.name
+  %td= item.unit_price
+  %td= item.interest
+  %td= item.duration
+  %td.td-actions.text-right
+    %button.btn.btn-info.btn-just-icon.btn-sm{"data-original-title" => "", :rel => "tooltip", :title => "", :type => "button"}
+      %i.fa.fa-search
+    %button.btn.btn-success.btn-just-icon.btn-sm{"data-original-title" => "", :rel => "tooltip", :title => "", :type => "button"}
+      %i.fas.fa-trash-alt

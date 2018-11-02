@@ -1,0 +1,8 @@
+.container
+  .row
+    .col-md-8
+      %h4 Your Stocks
+    .col-md-4
+      = link_to 'Add new stock', new_stock_path
+
+    = render 'table', stocks: @stocks if @stocks
