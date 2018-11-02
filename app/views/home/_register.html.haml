@@ -1,8 +1,8 @@
 #register.card.bg-light.border-0
   %article.card-body.mx-auto{:style => "max-width: 400px;"}
-    %h4.card-title.mt-3.text-center Create Account
-    %p.text-center Get started with your free account
-    = simple_form_for(User.new, url: user_registration_path) do |f|
+    %h4.card-title.mt-3.text-center= t('home.index.create_button')
+    %p.text-center= t('home.index.get_started')
+    = simple_form_for(:user, url: user_registration_path) do |f|
       = f.error_notification
       .form-group.input-group
         .input-group-prepend
@@ -20,9 +20,9 @@
             %i.fa.fa-lock
         = f.input :password_confirmation, label: false, required: true, class: 'form-control', placeholder: 'Repeat password'
       .form-group
-        = f.submit 'Create Account', class: 'btn btn-primary btn-block'
+        = f.submit t('home.index.create_button'), class: 'btn btn-primary btn-block'
       %p.divider-text
         %span.bg-light OR
       .form-group.js-switch-form
         .btn.btn-info.btn-block
-          I have account already
+          = t('home.index.already_registered')

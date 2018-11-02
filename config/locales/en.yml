@@ -1,3 +1,42 @@
 en:
-  app_name: Acrane Test
-  default_page_title: keke
+  app_name:           Acrane Test
+  page_title:         '%{title}'
+  default_page_title: Stock productivity calculator
+
+  layouts:
+    navbar:
+      root_link: Stock productivity calculator
+      log_out:   Log out
+
+  home:
+    index:
+      create_button:      Create Account
+      or:                 OR
+      already_registered: I have account already
+      no_account:         I have no account
+      sign_in:            Sign in
+      get_started:        Get started with your free account
+
+  stocks:
+    index:
+      actions:              Actions
+      your_stocks:          Your Stocks
+      successfully_deleted: Successfully deleted
+
+    create:
+      successfully_created: Stock saved
+
+    show:
+      properties:
+        name:       'Name:'
+        unit_price: 'Unit price:'
+        interest:   'Interest:'
+        duration:   'Duration:'
+
+  records:
+    stock:
+      properties:
+        name:       Name
+        unit_price: Unit price
+        interest:   Interest
+        duration:   Duration

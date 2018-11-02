@@ -2,8 +2,7 @@
 
 %html
   %head
-    %title
-      New Project
+    %title= yield(:title).presence || page_title
 
     = stylesheet_link_tag 'application'
     = stylesheet_pack_tag 'main'
@@ -22,5 +21,6 @@
   %body
     = render 'layouts/navigation'
     = render 'layouts/flash'
+
     .content
       = yield
