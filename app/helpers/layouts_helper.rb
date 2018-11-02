@@ -19,12 +19,6 @@ module LayoutsHelper
     javascript_include_tag ::Assets::Action.call(js_params), options
   end
 
-  def page_title
-    return controller_title unless I18n.exists?(action_page_title_key)
-
-    t('page_title', portal: portal_title, title: t(action_page_title_key))
-  end
-
   private
 
   def css_params
@@ -57,25 +51,5 @@ module LayoutsHelper
 
   def exception?
     controller_name.inquiry.exceptions?
-  end
-
-  def action_page_title_key
-    "#{controller_path}.#{current_action}.title"
-  end
-
-  def controller_page_title_key
-    "#{controller_path}.title"
-  end
-
-  def controller_title
-    t(
-      'page_title',
-      portal: portal_title,
-      title:  t(controller_page_title_key, default: t('default_page_title'))
-    )
-  end
-
-  def controller_path
-    current_controller.tr('/', '.')
   end
 end
