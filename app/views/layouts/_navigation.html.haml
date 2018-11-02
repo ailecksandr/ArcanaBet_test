@@ -1,0 +1,17 @@
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.static-top
+  .container
+    = link_to 'Start Bootstrap', root_path, class: 'navbar-brand'
+
+    %button.navbar-toggler{'aria-controls': 'navbarResponsive',
+                           'aria-expanded': 'false',
+                           'aria-label':    'Toggle navigation',
+                           'data-target':   '#navbarResponsive',
+                           'data-toggle':   'collapse',
+                           type:            'button'}
+
+      %span.navbar-toggler-icon
+    - if user_signed_in?
+      #navbarResponsive.collapse.navbar-collapse
+        %ul.navbar-nav.ml-auto
+          %li.nav-item
+            = link_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-link'

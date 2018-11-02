@@ -1,0 +1,25 @@
+#sign-in.card.bg-light.border-0
+  %article.card-body.mx-auto{:style => "max-width: 400px;"}
+    %h4.card-title.mt-3.text-center Sign In
+    %p.text-center Use your email and password to log in
+    = simple_form_for(:user, url: user_session_path) do |f|
+      .form-group.input-group
+        .input-group-prepend
+          %span.input-group-text
+            %i.fa.fa-envelope
+        = f.input :email, label: false, required: false, autofocus: true, class: 'form-control', placeholder: 'Email'
+      .form-group.input-group
+        .input-group-prepend
+          %span.input-group-text
+            %i.fa.fa-lock
+        = f.input :password, label: false, required: false, class: 'form-control', placeholder: 'Password'
+      .form-group.input-group
+        = f.input :remember_me, as: :boolean
+      .form-group
+        = f.submit 'Sign in', class: 'btn btn-primary btn-block'
+
+      %p.divider-text
+        %span.bg-light OR
+      .form-group.js-switch-form
+        .btn.btn-info.btn-block
+          I have account already

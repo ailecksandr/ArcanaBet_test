@@ -1,0 +1,61 @@
+@font-face {
+  font-family: 'Roboto Thin';
+  src:         asset_url('Roboto/Roboto-Thin.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto Light';
+  src:         asset_url('Roboto/Roboto-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto Italic';
+  src:         asset_url('Roboto/Roboto-Italic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto Regular';
+  src:         asset_url('Roboto/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto Medium';
+  src:         asset_url('Roboto/Roboto-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto Bold';
+  src:         asset_url('Roboto/Roboto-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto Black';
+  src:         asset_url('Roboto/Roboto-Black.ttf') format('truetype');
+}
+
+$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+$fa-version:   "5.2.0";
+
+@font-face {
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+  font-weight: 400;
+  src: asset_url('#{$fa-font-path}/fa-regular-400.eot');
+  src: asset_url('#{$fa-font-path}/fa-regular-400.eot?#iefix')      format('embedded-opentype'),
+       asset_url('#{$fa-font-path}/fa-regular-400.woff2')           format('woff2'),
+       asset_url('#{$fa-font-path}/fa-regular-400.woff')            format('woff'),
+       asset_url('#{$fa-font-path}/fa-regular-400.ttf')             format('truetype'),
+       asset_url('#{$fa-font-path}/fa-regular-400.svg#fontawesome') format('svg');
+}
+
+@font-face {
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+  font-weight: 900;
+  src: asset_url("#{$fa-font-path}/fa-solid-900.eot");
+  src: asset_url("#{$fa-font-path}/fa-solid-900.eot?#iefix")      format("embedded-opentype"),
+       asset_url("#{$fa-font-path}/fa-solid-900.woff2")           format("woff2"),
+       asset_url("#{$fa-font-path}/fa-solid-900.woff")            format("woff"),
+       asset_url("#{$fa-font-path}/fa-solid-900.ttf")             format("truetype"),
+       asset_url("#{$fa-font-path}/fa-solid-900.svg#fontawesome") format("svg")
+}

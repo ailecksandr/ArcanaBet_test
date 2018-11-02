@@ -8,16 +8,16 @@
         .input-group-prepend
           %span.input-group-text
             %i.fa.fa-envelope
-        = f.input :email, label: false, required: true, autofocus: true, class: 'form-control', placeholder: 'Email'
+        = f.input :email, required: true, autofocus: true, class: 'form-control', placeholder: 'Email'
       .form-group.input-group
         .input-group-prepend
           %span.input-group-text
             %i.fa.fa-lock
-        = f.input :password, label: false, required: true, class: 'form-control', placeholder: 'Password'
+        = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), class: 'form-control', placeholder: 'Password'
       .form-group.input-group
         .input-group-prepend
           %span.input-group-text
             %i.fa.fa-lock
-        = f.input :password_confirmation, label: false, required: true, class: 'form-control', placeholder: 'Repeat password'
+        = f.input :password_confirmation, required: true, class: 'form-control', placeholder: 'Repeat password'
       .form-group
-        = f.submit 'Create Account', class: 'btn btn-primary btn-block'
+        = f.button 'Create Account', class: 'btn btn-primary btn-block'

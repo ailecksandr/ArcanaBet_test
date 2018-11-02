@@ -1,4 +1,1 @@
-- unless flash.blank?
-  #flash.alert.alert-danger.alert-dismissible.container.text-center
-    %a.close{"aria-label": "close", "data-dismiss": "alert", href: "#"} ×
-    = flash[:alert].html_safe
+#flash-container{ data: { flash: flash.to_h.to_json } }

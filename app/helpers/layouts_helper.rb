@@ -12,17 +12,12 @@ module LayoutsHelper
   end
 
   def action_stylesheet_link_tag
+    binding.pry
     stylesheet_link_tag ::Assets::Action.call(css_params)
   end
 
   def action_script_include_tag(**options)
     javascript_include_tag ::Assets::Action.call(js_params), options
-  end
-
-  def page_title
-    return controller_title unless I18n.exists?(action_page_title_key)
-
-    t('page_title', portal: portal_title, title: t(action_page_title_key))
   end
 
   private
@@ -65,14 +60,6 @@ module LayoutsHelper
 
   def controller_page_title_key
     "#{controller_path}.title"
-  end
-
-  def controller_title
-    t(
-      'page_title',
-      portal: portal_title,
-      title:  t(controller_page_title_key, default: t('default_page_title'))
-    )
   end
 
   def controller_path

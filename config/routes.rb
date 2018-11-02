@@ -3,5 +3,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root 'stocks#index'
+  root 'home#index'
+
+  resource :home, only: :index
 end

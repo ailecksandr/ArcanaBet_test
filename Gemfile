@@ -16,6 +16,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'haml-rails', '~> 1.0'
 gem 'devise'
+gem 'simple_form'
 gem 'sprockets', '>= 4.0.0.beta8'
 
 group :development, :test do

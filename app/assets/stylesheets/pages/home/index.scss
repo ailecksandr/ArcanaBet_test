@@ -1,0 +1,46 @@
+body {
+  background: #f8f9fa !important;
+}
+
+.container-fluid {
+  padding: 0 !important;
+}
+
+.divider-text {
+  position: relative;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.divider-text span {
+  padding: 7px;
+  font-size: 12px;
+  position: relative;
+  z-index: 2;
+}
+.divider-text:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  top: 55%;
+  left: 0;
+  z-index: 1;
+}
+
+#homepage {
+  margin-top: 25vh;
+}
+
+.form-group.input-group {
+  .input-group-text {
+    height: calc(2.25rem + 2px);
+  }
+
+  .form-group {
+    input.form-control {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+    }
+  }
+}
