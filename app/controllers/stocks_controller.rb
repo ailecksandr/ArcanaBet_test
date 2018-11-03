@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class StocksController < ApplicationController
+  decorates_assigned :interest
+
   def index
     @facade = ::Stocks::IndexFacade.new(params: params, user: current_user)
   end

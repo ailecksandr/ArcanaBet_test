@@ -3,7 +3,7 @@
   %td
     = link_to item.name, stock_path(item)
   %td= item.unit_price
-  %td= number_to_percentage(item.interest, precision: 2)
+  %td= item.interest(human: true)
   %td= item.duration
   %td.td-actions.text-center
     = link_to stock_path(item), class: 'mr-2 show-link' do

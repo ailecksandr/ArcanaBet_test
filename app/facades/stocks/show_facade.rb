@@ -9,7 +9,7 @@ module Stocks
     end
 
     def stock
-      @stock ||= Stock.find_by(id: stock_id)
+      @stock ||= Stock.find_by(id: stock_id)&.decorate
     end
 
     def chart_params

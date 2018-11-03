@@ -14,7 +14,7 @@ module Stocks
     end
 
     def stocks
-      @stocks ||= paginated_stocks.second
+      @stocks ||= StockDecorator.decorate_collection(paginated_stocks.second)
     end
 
     def pagination

@@ -20,6 +20,7 @@ gem 'sprockets', '>= 4.0.0.beta8'
 gem 'simple_form'
 gem 'chartkick'
 gem 'pagy'
+gem 'draper'
 
 group :development, :test do
   gem 'brakeman', require: false

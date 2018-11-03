@@ -13,7 +13,7 @@ describe Stocks::IndexFacade do
     let(:subject_stocks) { subject.stocks }
 
     it 'return an array of stocks' do
-      expect(subject.stocks).to be_an(ActiveRecord::Relation)
+      expect(subject.stocks).to be_decorated_with(Draper::CollectionDecorator)
     end
 
     it 'return an array of stocks with fixed amount' do

@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 feature 'Stocks #index', js: true do
-  let(:user)        { create(:user) }
-  let!(:stock)      { create_list(:stock, 3, user: user) }
-  let(:last_stock)  { user.stocks.first }
+  let(:user)       { create(:user) }
+  let!(:stock)     { create_list(:stock, 3, user: user) }
+  let(:last_stock) { user.stocks.first.decorate }
 
   context 'when user signed in' do
     before do
@@ -17,7 +17,7 @@ feature 'Stocks #index', js: true do
     scenario 'shows stock info' do
       expect(page).to have_content(last_stock.name)
       expect(page).to have_content(last_stock.unit_price)
-      expect(page).to have_content(last_stock.interest)
+      expect(page).to have_content(last_stock.interest(human: true))
       expect(page).to have_content(last_stock.duration)
     end
 

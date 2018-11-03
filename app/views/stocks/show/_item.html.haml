@@ -16,7 +16,7 @@
                 %td= @facade.stock_unit_price
               %tr
                 %td= t('stocks.show.properties.interest')
-                %td= @facade.stock_interest
+                %td= @facade.stock_interest(human: true)
               %tr
                 %td= t('stocks.show.properties.duration')
                 %td= @facade.stock_duration
