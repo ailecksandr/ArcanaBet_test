@@ -1,24 +1,6 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Install Docker
+- Customize .env from .env-example
+- run docker-compose run webpack yarn install --pure-lockfile to install all node modules. See issue #3 about this.
+- run docker-compose up --build to create and run the various images, volumes, containers and a network
+- run docker-compose exec web rails db:setup to create DB, load schema and seed.
+- Visit localhost:3000 and rejoice

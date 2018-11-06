@@ -1,0 +1,34 @@
+# Ignore bundler config.
+.bundle
+
+# Ignore all logfiles and tempfiles.
+log/*
+tmp/*
+!log/.keep
+!tmp/.keep
+public/assets
+
+# Ignore uploaded files in development
+public/system/
+public/uploads/
+
+# Ignore IDE and OS specific files
+.DS_Store
+.idea
+.vs
+
+# Ignore other specific files
+.env
+.env.test
+.byebug_history
+.ruby-gemset
+coverage
+node_modules
+yarn-error.log
+storage/
+/public/packs
+/public/packs-test
+/node_modules
+yarn-debug.log*
+.yarn-integrity
+.dump

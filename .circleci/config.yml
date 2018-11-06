@@ -3,13 +3,13 @@ jobs:
   build:
     working_directory: ~/arcane_bet
     docker:
-      - image: circleci/ruby:2.5.1-node-browsers
+      - image: circleci/ruby:2.5.3-node-browsers
         environment:
           DATABASE_HOST:          localhost
           APP_NAME:               arcane_bet
           DATABASE_USERNAME:      ubuntu
           RAILS_ENV:              test
-          CIRCLE_CI_RUBY_VERSION: 2.5.1
+          CIRCLE_CI_RUBY_VERSION: 2.5.3
       - image: circleci/postgres:9.5-alpine
         environment:
           POSTGRES_USER: ubuntu

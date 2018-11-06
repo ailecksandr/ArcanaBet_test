@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby ENV.fetch('CIRCLE_CI_RUBY_VERSION', '2.5.0')
+ruby ENV.fetch('CIRCLE_CI_RUBY_VERSION', '2.5.3')
 
 gem 'rails', '~> 5.2.1'
 gem 'pg', '>= 0.18', '< 2.0'
@@ -48,4 +48,4 @@ group :test do
   gem 'rubocop'
 end
 
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'tzinfo-data'
